@@ -42,3 +42,17 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.pratham-PDots"
+            artifactId = "SimpleLibrary"
+            version = "1.1.3"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
